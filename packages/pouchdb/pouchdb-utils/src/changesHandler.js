@@ -20,10 +20,11 @@ export default class Changes extends EventEmitter {
     if (this._listeners[id]) {
       return;
     }
-    var inprogress = false;
-    var self = this;
-    function eventFunction() {
-      if (!self._listeners[id]) {
+    
+    let inprogress = false;
+    
+    const eventFunction = () => {
+      if (!this._listeners[id]) {
         return;
       }
       if (inprogress) {
@@ -31,27 +32,32 @@ export default class Changes extends EventEmitter {
         return;
       }
       inprogress = true;
-      var changesOpts = pick(opts, [
+      
+      const changesOpts = pick(opts, [
         'style', 'include_docs', 'attachments', 'conflicts', 'filter',
         'doc_ids', 'view', 'since', 'query_params', 'binary', 'return_docs'
       ]);
 
-      function onError() {
+      const onError = () => {
         inprogress = false;
-      }
+      };
 
-      db.changes(changesOpts).on('change', function (c) {
-        if (c.seq > opts.since && !opts.cancelled) {
-          opts.since = c.seq;
-          opts.onChange(c);
-        }
-      }).on('complete', function () {
-        if (inprogress === 'waiting') {
-          nextTick(eventFunction);
-        }
-        inprogress = false;
-      }).on('error', onError);
-    }
+      db.changes(changesOpts)
+        .on('change', (c) => {
+          if (c.seq > opts.since && !opts.cancelled) {
+            opts.since = c.seq;
+            opts.onChange(c);
+          }
+        })
+        .on('complete', () => {
+          if (inprogress === 'waiting') {
+            nextTick(eventFunction);
+          }
+          inprogress = false;
+        })
+        .on('error', onError);
+    };
+    
     this._listeners[id] = eventFunction;
     this.on(dbName, eventFunction);
   }
@@ -65,8 +71,8 @@ export default class Changes extends EventEmitter {
   }
 
   notifyLocalWindows(dbName) {
-    //do a useless change on a storage thing
-    //in order to get other windows's listeners to activate
+    // Do a useless change on a storage thing
+    // in order to get other windows's listeners to activate
     if (hasLocalStorage()) {
       localStorage[dbName] = (localStorage[dbName] === "a") ? "b" : "a";
     }

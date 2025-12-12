@@ -1,3 +1,3 @@
 #!/usr/bin/env -S bash -e
 
-COVERAGE=1 npm test
+npm run node -- src/bin/scripts.ts testCoverage "$@"

@@ -3,23 +3,15 @@ import cloneBinaryObject from './cloneBinaryObject';
 import isPlainObject from './isPlainObject';
 
 function clone(object) {
-  var newObject;
-  var i;
-  var len;
-
   if (!object || typeof object !== 'object') {
     return object;
   }
 
   if (Array.isArray(object)) {
-    newObject = [];
-    for (i = 0, len = object.length; i < len; i++) {
-      newObject[i] = clone(object[i]);
-    }
-    return newObject;
+    return object.map(item => clone(item));
   }
 
-  // special case: to avoid inconsistencies between IndexedDB
+  // Special case: to avoid inconsistencies between IndexedDB
   // and other backends, we automatically stringify Dates
   if (object instanceof Date && isFinite(object)) {
     return object.toISOString();
@@ -33,14 +25,11 @@ function clone(object) {
     return object; // don't clone objects like Workers
   }
 
-  newObject = {};
-  for (i in object) {
-    /* istanbul ignore else */
-    if (Object.prototype.hasOwnProperty.call(object, i)) {
-      var value = clone(object[i]);
-      if (typeof value !== 'undefined') {
-        newObject[i] = value;
-      }
+  const newObject = {};
+  for (const key of Object.keys(object)) {
+    const value = clone(object[key]);
+    if (typeof value !== 'undefined') {
+      newObject[key] = value;
     }
   }
   return newObject;
