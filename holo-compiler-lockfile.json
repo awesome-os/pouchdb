@@ -1,0 +1,52 @@
+{
+  "schema": "holo-compiler-lockfile-v1",
+  "abiMagic": "0x33564742",
+  "casLayout": "v11",
+  "repo": "awesome-os/pouchdb",
+  "targets": [
+    "win64",
+    "linux-x64",
+    "linux-arm64",
+    "macos-arm64",
+    "wasm32-wasi"
+  ],
+  "generatedAt": "2026-11-24T23:53:02.473Z",
+  "dependencies": [
+    {
+      "id": "awesome-os/pouchdb/pouchdb-v0.1.0.tar.zst",
+      "kind": "object",
+      "version": "v0.1.0",
+      "target": "any",
+      "sha512": "213632008d8768f3cd08201143ec62c6b130b806c27f4471b66f7d37873c684081255ef2c64cbf0f1b1d1d6a8dd63b0e4415233026f5b4401195ec5685250830",
+      "size": 4326634,
+      "executable": false,
+      "blob": "v11/files/21/213632008d8768f3cd08201143ec62c6b130b806c27f4471b66f7d37873c684081255ef2c64cbf0f1b1d1d6a8dd63b0e4415233026f5b4401195ec5685250830",
+      "url": "https://github.com/awesome-os/pouchdb/releases/download/v0.1.0/pouchdb-v0.1.0.tar.zst",
+      "dependencies": []
+    },
+    {
+      "id": "awesome-os/pouchdb/SHA256SUMS.txt",
+      "kind": "object",
+      "version": "v0.1.0",
+      "target": "any",
+      "sha512": "458d1bb25b32d8f60210e6419a4964dbb6d6e009792e1f3e3dbff2a6b7a7f883430d228b01539a406a6ed7ffd7a82d452f789a2fda3c6ee9cb54a78dfccee2f5",
+      "size": 89,
+      "executable": false,
+      "blob": "v11/files/45/458d1bb25b32d8f60210e6419a4964dbb6d6e009792e1f3e3dbff2a6b7a7f883430d228b01539a406a6ed7ffd7a82d452f789a2fda3c6ee9cb54a78dfccee2f5",
+      "url": "https://github.com/awesome-os/pouchdb/releases/download/v0.1.0/SHA256SUMS.txt",
+      "dependencies": []
+    },
+    {
+      "id": "awesome-os/pouchdb/SHA512SUMS.txt",
+      "kind": "object",
+      "version": "v0.1.0",
+      "target": "any",
+      "sha512": "b7da8b590e984363a2228bea586b243099e494adeb8e6f757c5c4f0368a5efe263b0a8a4fd4b25c671a3aa3dc50d57328fc44fb80c3f7d0b9778f521a145da5c",
+      "size": 153,
+      "executable": false,
+      "blob": "v11/files/b7/b7da8b590e984363a2228bea586b243099e494adeb8e6f757c5c4f0368a5efe263b0a8a4fd4b25c671a3aa3dc50d57328fc44fb80c3f7d0b9778f521a145da5c",
+      "url": "https://github.com/awesome-os/pouchdb/releases/download/v0.1.0/SHA512SUMS.txt",
+      "dependencies": []
+    }
+  ]
+}
