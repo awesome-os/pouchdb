@@ -49,9 +49,9 @@ If you have a pull request that you'd like to submit, please read the [contribut
 ## Quick Install & Run (Windows / Linux / macOS)
 
 ```sh
-# Install globally via awesome-os/pnpm (all platforms)
-pnpm add -g github:awesome-os/pouchdb
+# Install / hydrate from v11 CAS via holo-pm
+holo-pm install repository://github.com/awesome-os/pouchdb@main
 
-# Run directly (all platforms)
-pouchdb --help
+# Or project & run directly via holo-project (0-byte hardlink)
+holo-project "project://node/pouchdb?from=repository://github.com/awesome-os/pouchdb@main"
 ```
